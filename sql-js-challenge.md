@@ -1,10 +1,5 @@
 # Sequelize Challenge
-
-Use the lesson for reference as well as the documentation.
-
-In the lesson, we did not cover _many to many_ associations. You will use appointments as a model to split each association into 1:N 
-
-Perhaps look at the documentation on Commentable? 
+Please Submit folder in forked repo titled "SQL_Solution" Please reference Squelize Documentation as necessary.
 
 ## Objective: 
 
