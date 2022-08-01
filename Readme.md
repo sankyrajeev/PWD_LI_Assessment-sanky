@@ -11,4 +11,4 @@ Enter your answers for each problem
 
 answer section will be noted with //YOUR CODE HERE 
 
-To submit: push your code to your forked repo and submit that link by email to jherrel@theknowledgehouse.org
+To submit: push your code to your forked repo and submit that link by email to careers@theknowledgehouse.org
