@@ -34,7 +34,7 @@ class Deck {
         this.cards = [];
     }
 
-    setNew() {
+    createDeck() {
         this.cards = [];
         const suits = ['diamonds', 'clubs', 'hearts', 'spades'];
         const values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
@@ -69,4 +69,33 @@ class Deck {
             return parseInt(value)
         }
     }
+
+    shuffle() {
+        const cards = this.cards;
+        let n = cards.length;
+
+        while (n > 0) {
+            const i = Math.floor(Math.random() * n);
+            n = n - 1;
+            [cards[i], cards[n]] = [cards[n], cards[i]];
+
+        }
+    }
+    dealCard() {
+        return this.cards.pop();
+    }
+
+    addCard(card) {
+        this.cards.push(card);
+        return this;
+    }
+
+    numCards() {
+        return this.cards.length;
+    }
+}
+
+
+function wargame() {
+
 }
