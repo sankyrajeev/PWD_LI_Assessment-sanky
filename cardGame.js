@@ -27,3 +27,46 @@ kings = 13
 6. console log both card objects, and a message declaring which one has the higher value
 
 */
+
+
+class Deck {
+    constructor() {
+        this.cards = [];
+    }
+
+    setNew() {
+        this.cards = [];
+        const suits = ['diamonds', 'clubs', 'hearts', 'spades'];
+        const values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
+        for (let i = 0; i < suits.length; i++) {
+            const suit = suits[i];
+            for (let j = 0; j < values.length; j++) {
+                const value = values[j];
+                const card = {
+                    suit: suit,
+                    value: value,
+                    rank: this.getRank(value),
+                };
+                this.cards.push(card);
+            }
+        }
+    }
+
+    getRank(value) {
+        if (value == 'A') {
+            return 1;
+        }
+        else if (value == 'J') {
+            return 11;
+        }
+        else if (value == 'Q') {
+            return 12;
+        }
+        else if (value == 'K') {
+            return 13;
+        }
+        else {
+            return parseInt(value)
+        }
+    }
+}
