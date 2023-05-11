@@ -32,6 +32,7 @@ kings = 13
 class Deck {
     constructor() {
         this.cards = [];
+        this.createDeck();
     }
 
     createDeck() {
@@ -97,5 +98,74 @@ class Deck {
 
 
 function wargame() {
-
-}
+    const player1 = new Deck();
+    const player2 = new Deck();
+  
+    player1.shuffle();
+    player2.shuffle();
+  
+    while (player1.numCards() > 0 && player2.numCards() > 0) {
+      const player1Card = player1.dealCard();
+      console.log("Player 1 Card is:", player1Card);
+      const player2Card = player2.dealCard();
+      console.log("Player 2 Card is:", player2Card);
+  
+      if (player1Card.rank > player2Card.rank) {
+        console.log("Player 1 wins");
+        player1.addCard(player1Card);
+        player1.addCard(player2Card);
+      } else if (player1Card.rank < player2Card.rank) {
+        console.log("Player 2 wins");
+        player2.addCard(player1Card);
+        player2.addCard(player2Card);
+      } else {
+        console.log("Time to Battle");
+  
+        const player1WarCards = [player1Card];
+        const player2WarCards = [player2Card];
+  
+        while (true) {
+          const player1NextCard = player1.dealCard();
+          const player2NextCard = player2.dealCard();
+  
+          console.log("Player 1 war card:", player1NextCard);
+          console.log("Player 2 war card:", player2NextCard);
+  
+          player1WarCards.push(player1NextCard);
+          player2WarCards.push(player2NextCard);
+  
+          if (player1NextCard.rank > player2NextCard.rank) {
+            console.log("Player 1 wins the war!");
+            player1
+              .addCard(player1Card)
+              .addCard(player2Card)
+              .addCard(...player1WarCards)
+              .addCard(...player2WarCards);
+            break;
+          } else if (player1NextCard.rank < player2NextCard.rank) {
+            console.log("Player 2 wins the war!");
+            player2
+              .addCard(player1Card)
+              .addCard(player2Card)
+              .addCard(...player1WarCards)
+              .addCard(...player2WarCards);
+            break;
+          } else {
+            console.log("War continues!");
+          }
+        }
+      }
+  
+      console.log("Player 1 deck:", player1.cards);
+      console.log("Player 2 deck:", player2.cards);
+    }
+  
+    if (player1.numCards() === 0) {
+      console.log("Player 2 wins the game!");
+    } else {
+      console.log("Player 1 wins the game!");
+    }
+  }
+  
+  wargame();
+  
