@@ -14,31 +14,33 @@ complete the code as per the given instructions:
 */
 
 
-class APICaller extends React.Component{
-  callApi(){
+class APICaller extends React.Component {
+  callApi() {
     //#1 Implement a fetch method with the given API ENDPOINT
     // YOUR CODE HERE 
-    .then((result)=>{
-      //#2 Return the result in json format
-      //YOUR CODE HERE 
-    }).then((jsonData)=>{
-      //#3 Print/log the jsonData in the console of the browser
-      //YOUR CODE HERE 
-    })
+    fetch("https://www.reddit.com/r/react.json")
+      .then((response) => response.json()
+        //#2 Return the result in json format
+        //YOUR CODE HERE 
+      ).then((jsonData) => {
+        //#3 Print/log the jsonData in the console of the browser
+        //YOUR CODE HERE 
+        console.log(jsonData);
+      })
   }
-render(){
-  return <div>
-    <button 
-  //#4 Implement an onCLick functionality to the button such that it calls the callApi() function when it is clicked. 
-  // YOUR CODE HERE 
-    >Call the API now.</button>
-  </div>
-}
+  render() {
+    return <div>
+
+  //#4 Implement an onCLick functionality to the button such that it calls the callApi() function when it is clicked.
+      // YOUR CODE HERE 
+      <button onClick={this.callApi}>Call the API now.</button>
+    </div>
+  }
 }
 React.render(
   //#5 Implement the APICaller component appropiately into the render method
   //YOUR CODE HERE 
-  , document.getElementById('myapicaller')
+  <APICaller />, document.getElementById('myapicaller')
 )
 
 
@@ -50,7 +52,7 @@ Please write an example of a recursive function, and comment each line
 */
 /*EXPLANATION HERE (1 paragraph) */
 
-function myRecursiveFunction(){
+function myRecursiveFunction() {
   //YOUR CODE WITH COMMENTS HERE
 }
 
